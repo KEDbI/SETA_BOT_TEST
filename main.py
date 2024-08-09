@@ -5,6 +5,7 @@ from aiogram.client.bot import DefaultBotProperties
 from handlers import user_handlers
 
 from services.services import start_scheduler
+from keyboards.set_menu import set_main_menu
 
 
 async def main() -> None:
@@ -14,6 +15,7 @@ async def main() -> None:
     dp: Dispatcher = Dispatcher()
 
     await start_scheduler(bot)
+    await set_main_menu(bot)
 
     # Регистрируем роутеры в диспетчере
     dp.include_router(user_handlers.router)
